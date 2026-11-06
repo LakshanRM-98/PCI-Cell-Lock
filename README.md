@@ -16,6 +16,10 @@ It starts at boot and runs without the LuCI page open. It only sends 4G lock com
 
 It installs turned off and changes nothing until you turn it on under Services, Auto Pci Cell. Copy the package to /tmp on the router first, then log out of LuCI and back in after installing.
 
+On NoobWRT:
+
+    apk add --allow-untrusted /tmp/auto-pci-cell-0.2.1-r1.apk
+
 On MyWRT:
 
     opkg install /tmp/auto-pci-cell_0.2.1-1_all.ipk
@@ -23,10 +27,6 @@ On MyWRT:
 MyWRT has its own PCI Lock, which has to stay off or this app pauses:
 
     uci set pcilock.cfg.enabled=0; uci commit pcilock; /etc/init.d/pcilock disable
-
-On NoobWRT:
-
-    apk add --allow-untrusted /tmp/auto-pci-cell-0.2.1-r1.apk
 
 To remove it, use `opkg remove auto-pci-cell` or `apk del auto-pci-cell`.
 
